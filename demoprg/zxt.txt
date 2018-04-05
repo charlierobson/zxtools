@@ -1,0 +1,17 @@
+rand usr 16514
+let m = peek 8192
+
+print "AYFX DEMO"
+print ""
+print "PRESS A-";chr$(m - 1 + code "A")
+
+@wkey:
+let a$ = inkey$
+if a$ = "" then goto @wkey
+
+let a = code a$ - code "A" + 1
+if a > m then goto @wkey
+
+poke 16517,a
+rand usr 16516
+goto @wkey

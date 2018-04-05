@@ -1,7 +1,8 @@
 *.out
 *.p
-*.bin
 *.sym
+*.bin
 zxtext2p
 zxtool
 /*.txt
+/*.asm
