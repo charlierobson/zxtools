@@ -1,0 +1,3 @@
+mono /usr/local/bin/Brass.exe ayfxmc.asm ayfxmc.bin
+../zxtext2p -l -o demo.p zxt.txt
+cp demo.p zxpandsd/

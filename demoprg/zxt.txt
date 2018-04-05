@@ -1,17 +1,42 @@
-rand usr 16514
-let m = peek 8192
+!ayfxmc.bin
 
-print "AYFX DEMO"
+config "m=l"
+rand usr 16514
+
+print "ayfx demo"
 print ""
-print "PRESS A-";chr$(m - 1 + code "A")
+
+let a$ = "zedragon"
+zxpand "get param"
+gosub @getparam
+if a$ = "zedragon" then goto @ct
+
+load a$+";8192"
+rand usr 16516
+
+@ct:
+print "playing sfx bank: " + a$
+print
+
+let m = peek 8192
+print "press keys a-";chr$(m - 1 + code "a")
 
 @wkey:
-let a$ = inkey$
-if a$ = "" then goto @wkey
+let k$ = inkey$
+let a = code k$ - code "A" + 1
+if a < 1 or a > m then goto @wkey
 
-let a = code a$ - code "A" + 1
-if a > m then goto @wkey
-
-poke 16517,a
-rand usr 16516
+print at 8,0;"playing effect: ";a;"   "
+poke 16519,a
+rand usr 16518
 goto @wkey
+
+@getparam:
+let l = peek 16446
+if l = 0 then return
+dim a$(l)
+let ptr = peek(16447) + 256 * peek (16448)-1
+for i = 1 to l
+let a$(i) = chr$(peek (i+ptr))
+next i
+return

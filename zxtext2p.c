@@ -65,7 +65,7 @@ unsigned char sysvarbuf[116]; /* Buffer for holding the system variables */
 
 #define REM_TOKEN_NUM   234
 
-const char *tokens[]= {
+char *tokens[]= {
     "copy", "cat",
     "return", "",
     "clear", "",
@@ -206,7 +206,6 @@ void ShowUsage()
     printf("        -i      in labels mode, set line number increment. (default = 2).\n");
     printf("        -l      use labels rather than line numbers.\n");
     printf("        -o      specify output file (default `%s').\n",DEFAULT_OUT_FILE);
-    printf("        -m      specify machine code for rem line 1.\n");
     printf("        -s      in labels mode, set starting line number (default = 10).\n");
 }
 
@@ -485,10 +484,12 @@ int main(int argc,char *argv[])
                     fprintf(stderr,"Could not open machine code file.\n");
                     exit(1);
                 }
-                machineCodeLen = fseek(machineCode,0L,SEEK_END);
+                fseek(machineCode,0L,SEEK_END);
+                machineCodeLen = ftell(machineCode);
                 rewind(machineCode);
+
                 strcpy(buf+1,"REM ");
-                memset(buf+5, '0', machineCodeLen);
+                memset(buf+5, '.', machineCodeLen);
                 buf[5+machineCodeLen]=0;
             }
 
@@ -811,9 +812,10 @@ int main(int argc,char *argv[])
     
             *outptr++=0x76; /* add terminating NEWLINE */
 
-            if (machineCodeFile != NULL) {
-
-                machineCodeFile = NULL;
+            if (machineCode != NULL) {
+                fread(outbuf+1,1,machineCodeLen,machineCode);
+                machineCode = NULL;
+                fclose(machineCode);
             }
 
             /* output line */
