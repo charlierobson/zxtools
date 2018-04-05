@@ -1,0 +1,7 @@
+*.out
+*.p
+*.bin
+*.sym
+zxtext2p
+zxtool
+/*.txt

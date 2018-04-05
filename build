@@ -1,0 +1,2 @@
+g++ zxtool.cpp -o zxtool
+gcc zxtext2p.c -o zxtext2p
