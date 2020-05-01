@@ -49,7 +49,7 @@ const char *tabel[] =
         "%C", "%D", "%E", "%F", "%G", "%H", "%I", "%J",
         "%K", "%L", "%M", "%N", "%O", "%P", "%Q", "%R",
         "%S", "%T", "%U", "%V", "%W", "%X", "%Y", "%Z",
-        "\"\"", "AT ", "TAB ", "?", "CODE ", "VAL ", "LEN ", "SIN ",
+        "\\\"", "AT ", "TAB ", "?", "CODE ", "VAL ", "LEN ", "SIN ",
         "COS ", "TAN ", "ASN ", "ACS ", "ATN ", "LN ", "EXP ", "INT ",
         "SQR ", "SGN ", "ABS ", "PEEK ", "USR ", "STR$ ", "CHR$ ", "NOT ",
         "**", " OR ", " AND ", "<=", ">=", "<>", " THEN ", " TO ",
@@ -312,7 +312,7 @@ int main(int argc, char **argv)
             puts("    auto=[line]    : make the program auto-run from the specified line number.");
             puts("    extract=[line] : extract program line to temp.q");
             puts("    insert         : insert/overwrite program line from temp.q");
-            puts("    zxpand         : use extended ZXpand BASIC tokens");
+            puts("    zxpand         : use extended ZXpand+ BASIC tokens");
             puts("");
             puts("  If no options are specified, a listing is performed.");
             puts("");
