@@ -14,4 +14,4 @@ zxtext2p will:
 * compile a text-based representation of a zeddy program into a standard P file
 * allow development without line numbers, using a label-based system for GO(TO/SUB)
 
-Binaries are available pre-compiled for windows and mac/linux.
+Binaries are available pre-compiled for [windows](https://github.com/charlierobson/zxtools/tree/master/bin-win) and [mac/linux](https://github.com/charlierobson/zxtools/tree/master/bin-mac).
