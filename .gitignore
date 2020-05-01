@@ -6,3 +6,5 @@ zxtext2p
 zxtool
 /*.txt
 /*.asm
+*.obj
+*.o
