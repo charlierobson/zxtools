@@ -51,8 +51,8 @@ class argcrack
                         ++argp;
                   }
 
-                  if (strcasecmp(argp, "?") == 0 ||
-                      strcasecmp(argp, "help") == 0)
+                  if (strcmp(argp, "?") == 0 ||
+                      strcmp(argp, "help") == 0)
                   {
                         return true;
                   }
@@ -120,7 +120,7 @@ class argcrack
       {
             for (int i = 1; i < m_argc; ++i)
             {
-                  if (strncasecmp(pname, m_argv[i], strlen(pname)) == 0)
+                  if (strncmp(pname, m_argv[i], strlen(pname)) == 0)
                   {
                         eval(&m_argv[i][strlen(pname)], target);
 
@@ -139,7 +139,7 @@ class argcrack
       {
             for (int i = 1; i < m_argc; ++i)
             {
-                  if (strncasecmp(pname, m_argv[i], strlen(pname)) == 0)
+                  if (strncmp(pname, m_argv[i], strlen(pname)) == 0)
                   {
                         target = &m_argv[i][strlen(pname)];
                         return true;
@@ -164,7 +164,7 @@ class argcrack
       {
             for (int i = 1; i < m_argc; ++i)
             {
-                  if (strncasecmp(pname, m_argv[i], strlen(pname)) == 0)
+                  if (strncmp(pname, m_argv[i], strlen(pname)) == 0)
                   {
                         return true;
                   }
